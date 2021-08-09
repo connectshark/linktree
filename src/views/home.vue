@@ -1,4 +1,22 @@
 <template>
-  <img alt="Vue logo" src="../assets/logo.png">
-  <h2>Hi! 快速使用vue3做出網頁template</h2>
+<div class="home">
+  <Banner/>
+</div>
 </template>
+
+<script>
+import Banner from '../components/banner'
+export default {
+  components: {
+    Banner
+  },
+  setup () {
+    return {
+
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+</style>

@@ -11,12 +11,15 @@ export default {
 </script>
 
 <style>
+@import 'assets/scss/font.scss';
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'openhuninn', 'Noto Sans TC', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #6e6e6e;
+}
+img{
+  vertical-align: middle;
+  width: 100%;
 }
 </style>

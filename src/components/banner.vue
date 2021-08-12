@@ -20,8 +20,21 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   setup () {
+    axios({
+      method: 'GET',
+      baseURL: 'https://fierce-badlands-64435.herokuapp.com/',
+      url: 'github',
+      params: {
+        user: 'connectshark',
+        repo: 'linktree-data',
+        path: 'index.json'
+      }
+    }).then(res => {
+      console.log(res.data)
+    })
     return {
 
     }

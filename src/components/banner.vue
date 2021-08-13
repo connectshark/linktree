@@ -3,6 +3,7 @@
   <div class="content">
     <div class="hero"></div>
     <h1>{{data.name}}</h1>
+    <p class="description">{{data.description}}</p>
     <div class="social-group">
       <a class="social-btn"
         v-for="item in data.social"
@@ -38,10 +39,11 @@ export default defineComponent ({
 <style lang="scss" scoped>
 @import '../assets/scss/color.scss';
 .banner{
-  padding: 4rem 0;
+  padding: 3rem 0;
   .content{
     width: 60%;
     margin: auto;
+    text-align: center;
     .hero{
       width: 8rem;
       height: 8rem;
@@ -49,15 +51,19 @@ export default defineComponent ({
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      border-radius: 50%;
+      border-radius: 20px;
       margin: auto;
     }
     h1{
-      text-align: center;
       font-size: 28px;
       line-height: 1.9;
       font-weight: 600;
       color: #fff;
+    }
+    .description{
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 20px;
     }
     .social-group{
       display: flex;

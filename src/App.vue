@@ -3,15 +3,24 @@
 </template>
 
 <script>
+import LS from './lib/LS'
 export default {
   name: 'App',
-  components: {
+  setup () {
+    const color = LS.load('color')
+    if (color) {
+      document.querySelector(':root').style.setProperty(`--color`, color)
+    }
   }
 }
 </script>
 
 <style>
 @import 'assets/scss/font.scss';
+:root{
+  --color: #a2d5d1;
+}
+
 #app {
   font-family: 'openhuninn', 'Noto Sans TC', sans-serif;
   -webkit-font-smoothing: antialiased;

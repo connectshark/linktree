@@ -33,12 +33,12 @@ export default defineComponent ({
     border: 2px solid #fff;
     border-radius: 20px;
     margin-bottom: 20px;
-    background-color: #a2d5d1;
+    background-color: var(--color);
     transition: background .3s;
     &:hover{
       background-color: #fff;
       a{
-        color: #a2d5d1;
+        color: var(--color);
       }
     }
     a{
@@ -46,7 +46,7 @@ export default defineComponent ({
       text-decoration: none;
       color: #fff;
       display: block;
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       text-align: center;
       line-height: 2;
     }

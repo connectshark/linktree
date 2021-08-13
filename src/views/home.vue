@@ -16,6 +16,7 @@
       <Loading/>
     </template>
   </Suspense>
+  <Color/>
 </div>
 </template>
 
@@ -23,18 +24,21 @@
 import Banner from '../components/banner'
 import Link from '../components/link'
 import Loading from '../components/loading'
+import Color from '../components/color'
 export default {
   components: {
     Banner,
     Link,
-    Loading
+    Loading,
+    Color
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .home{
-  background-color: #a2d5d1;
+  background-color: var(--color);
   min-height: 100vh;
+  transition: background .3s;
 }
 </style>

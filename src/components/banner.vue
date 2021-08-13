@@ -2,44 +2,37 @@
 <div class="banner">
   <div class="content">
     <div class="hero"></div>
-    <h1>Nosegates</h1>
+    <h1>{{data.name}}</h1>
     <div class="social-group">
-      <div class="social-btn">
-        <i class='bx bxl-facebook'></i>
-      </div>
-      <div class="social-btn">
-        <i class='bx bxl-instagram'></i>
-      </div>
-      <div class="social-btn">
-        <i class="fab fa-line"></i>
-      </div>
+      <a class="social-btn"
+        v-for="item in data.social"
+        :key="item.url"
+        :href="item.url"
+        target="_blank"
+      >
+        <i :class="item.icon"></i>
+      </a>
     </div>
-    
   </div>
 </div>
 </template>
 
 <script>
-import axios from 'axios'
-export default {
-  setup () {
-    axios({
-      method: 'GET',
-      baseURL: 'https://fierce-badlands-64435.herokuapp.com/',
-      url: 'github',
-      params: {
-        user: 'connectshark',
-        repo: 'linktree-data',
-        path: 'index.json'
-      }
-    }).then(res => {
-      console.log(res.data)
-    })
-    return {
+import { defineComponent, watch } from 'vue'
+import request from '../hook/request'
 
-    }
+export default defineComponent ({
+  setup () {
+    return new Promise((resolve) => {
+      const { data, loading } = request.getGithubData('index.json')
+      watch(loading, () => {
+        resolve({
+          data
+        })
+      })
+    })
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -63,14 +56,26 @@ export default {
       text-align: center;
       font-size: 28px;
       line-height: 1.9;
+      font-weight: 600;
+      color: #fff;
     }
     .social-group{
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-around;
       .social-btn{
-        display: inline-block;
         width: 33%;
         text-align: center;
+        color: #fff;
+        transition: transform .3s;
+        transform: scale(1);
+        &:hover{
+          transform: scale(1.2);
+        }
         i{
-          font-size: 1.5rem;
+          font-size: 2rem;
+          line-height: 30px;
         }
       }
     }

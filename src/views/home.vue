@@ -25,6 +25,7 @@ import Banner from '../components/banner'
 import Link from '../components/link'
 import Loading from '../components/loading'
 import Color from '../components/color'
+
 export default {
   components: {
     Banner,
@@ -35,8 +36,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
+@import '../assets/scss/media.scss';
 .home{
-  transition: background .3s;
+  width: 100%;
+  max-width: 768px;
+  margin: auto;
 }
 </style>

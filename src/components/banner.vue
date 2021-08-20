@@ -24,7 +24,7 @@ import request from '../hook/request'
 
 export default {
   setup () {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       const { data, loading } = request.getGithubData('index.json')
       watch(loading, () => {
         resolve({
@@ -51,8 +51,9 @@ export default {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      border-radius: 20px;
+      border-radius: 3vw;
       margin: auto;
+      transition: border-radius .3s;
     }
     h1{
       font-size: 28px;

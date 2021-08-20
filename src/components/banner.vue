@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import { defineComponent, watch } from 'vue'
+import { watch } from 'vue'
 import request from '../hook/request'
 
-export default defineComponent ({
+export default {
   setup () {
     return new Promise((resolve) => {
       const { data, loading } = request.getGithubData('index.json')
@@ -33,7 +33,7 @@ export default defineComponent ({
       })
     })
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

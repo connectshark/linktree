@@ -37,8 +37,6 @@ export default {
 
 <style lang="scss" scoped>
 .home{
-  background-color: var(--color);
-  min-height: 100vh;
   transition: background .3s;
 }
 </style>

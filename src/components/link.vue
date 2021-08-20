@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import { defineComponent, watch } from 'vue'
+import { watch } from 'vue'
 import request from '../hook/request'
 
-export default defineComponent ({
+export default {
   setup () {
     return new Promise(resolve => {
       const { data, loading } = request.getGithubData('link.json')
@@ -21,7 +21,7 @@ export default defineComponent ({
       })
     })
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
@@ -33,7 +33,6 @@ export default defineComponent ({
     border: 2px solid #fff;
     border-radius: 20px;
     margin-bottom: 20px;
-    background-color: var(--color);
     transition: background .3s;
     &:hover{
       background-color: #fff;

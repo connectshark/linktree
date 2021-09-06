@@ -1,17 +1,19 @@
 <template>
-<ul class="link">
-  <li v-for="(item, index) in links" :key="index" class="link-item">
-    <a :href="item.url" target="_blank">{{item.name}}</a>
+  <li class="link-item">
+    <a :href="url" target="_blank">{{name}}</a>
   </li>
-</ul>
 </template>
 
 <script>
 export default {
   props: {
-    links: {
-      type: Array,
-      default: []
+    url: {
+      type: String,
+      require: true
+    },
+    name: {
+      type: String,
+      require: true
     }
   }
 }

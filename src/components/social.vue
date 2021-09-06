@@ -1,30 +1,21 @@
 <template>
-<div class="banner">
-  <div class="content">
-    <div class="hero"></div>
-    <h1>Nosegates</h1>
-    <p class="description">本名鼻子</p>
-    <div class="social-group">
-      <a class="social-btn"
-        v-for="item in socials"
-        :key="item.url"
-        :href="item.url"
-        target="_blank"
-      >
-        <i :class="item.icon"></i>
-      </a>
-    </div>
-  </div>
-</div>
+<a class="social-btn"
+  :href="url"
+  target="_blank"
+>
+  <i :class="icon"></i>
+</a>
 </template>
 
 <script>
 
 export default {
   props: {
-    socials: {
-      type: Array,
-      default: []
+    url: {
+      type: String
+    },
+    icon: {
+      type: String
     }
   }
 }

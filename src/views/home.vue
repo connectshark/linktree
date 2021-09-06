@@ -1,30 +1,18 @@
 <template>
 <div class="home">
-  <Suspense>
-    <template #default>
-      <Banner />
-    </template>
-    <template #fallback>
-      <Loading/>
-    </template>
-  </Suspense>
-  <Suspense>
-    <template #default>
-      <Link />
-    </template>
-    <template #fallback>
-      <Loading/>
-    </template>
-  </Suspense>
+  <Banner :socials="data.socials"/>
+  <Link :links="data.links"/>
   <Color/>
 </div>
 </template>
 
 <script>
-import Banner from '../components/banner'
-import Link from '../components/link'
-import Loading from '../components/loading'
-import Color from '../components/color'
+import Banner from '../components/banner.vue'
+import Link from '../components/link.vue'
+import Loading from '../components/loading.vue'
+import Color from '../components/color.vue'
+import request from '../hook/request'
+import { reactive } from 'vue'
 
 export default {
   components: {
@@ -32,6 +20,23 @@ export default {
     Link,
     Loading,
     Color
+  },
+  setup () {
+    const data = reactive({
+      links: [],
+      socials: []
+    })
+    request.getGithubData('index.json')
+      .then(res => {
+        data.links = res.links
+        data.socials = res.social
+      })
+      .catch(() => {
+        alert('請稍候再嘗試')
+      })
+    return{
+      data
+    }
   }
 }
 </script>

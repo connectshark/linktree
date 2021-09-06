@@ -2,11 +2,11 @@
 <div class="banner">
   <div class="content">
     <div class="hero"></div>
-    <h1>{{data.name}}</h1>
-    <p class="description">{{data.description}}</p>
+    <h1>Nosegates</h1>
+    <p class="description">本名鼻子</p>
     <div class="social-group">
       <a class="social-btn"
-        v-for="item in data.social"
+        v-for="item in socials"
         :key="item.url"
         :href="item.url"
         target="_blank"
@@ -19,19 +19,13 @@
 </template>
 
 <script>
-import { watch } from 'vue'
-import request from '../hook/request'
 
 export default {
-  setup () {
-    return new Promise(resolve => {
-      const { data, loading } = request.getGithubData('index.json')
-      watch(loading, () => {
-        resolve({
-          data
-        })
-      })
-    })
+  props: {
+    socials: {
+      type: Array,
+      default: []
+    }
   }
 }
 </script>

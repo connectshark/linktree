@@ -1,4 +1,4 @@
-const { createRouter, createWebHistory } = require('vue-router')
+import { createRouter, createWebHistory } from 'vue-router'
 
 const history = createWebHistory()
 

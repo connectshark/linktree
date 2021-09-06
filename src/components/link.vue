@@ -1,25 +1,18 @@
 <template>
 <ul class="link">
-  <li v-for="(item, index) in data" :key="index" class="link-item">
+  <li v-for="(item, index) in links" :key="index" class="link-item">
     <a :href="item.url" target="_blank">{{item.name}}</a>
   </li>
 </ul>
 </template>
 
 <script>
-import { watch } from 'vue'
-import request from '../hook/request'
-
 export default {
-  setup () {
-    return new Promise(resolve => {
-      const { data, loading } = request.getGithubData('link.json')
-      watch(loading, () => {
-        resolve({
-          data
-        })
-      })
-    })
+  props: {
+    links: {
+      type: Array,
+      default: []
+    }
   }
 }
 </script>

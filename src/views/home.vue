@@ -19,7 +19,7 @@
     <Loading v-if="loading"/>
     <Link
       v-for="(item, index) in data.links" :key="index"
-      :url="item.url"
+      :url="item.link"
       :name="item.name"
     />
     <Link
@@ -52,14 +52,13 @@ export default {
       social: []
     })
     const loading = ref(true)
-    request.getGithubData('index.json')
+    request.getGithubData('scoial.json')
       .then(res => {
-        data.links = res.links
-        data.social = res.social
-        loading.value = false
+        data.social = res
       })
-      .catch(() => {
-        alert('請稍候再嘗試')
+    request.getGithubData('link.json')
+      .then(res => {
+        data.links = res
         loading.value = false
       })
     return{

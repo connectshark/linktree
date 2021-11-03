@@ -3,7 +3,7 @@
   :href="url"
   target="_blank"
 >
-  <i :class="icon"></i>
+  <i :class="icon" class="bx"></i>
 </a>
 </template>
 
